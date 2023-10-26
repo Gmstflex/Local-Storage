@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local Storage Example</title>
+    <script type="text/javascript">
+        const localStorage = window.localStorage;
+
+        const initialize = () => {
+            if (localStorage) {
+                const count = localStorage.getItem("visitCount") || 0;
+                const newCount = parseInt(count) + 1;
+                localStorage.setItem("visitCount", newCount);
+                updateDOM();
+            }
+        };
+
+        const updateDOM = () => {
+            const count = localStorage.getItem("visitCount") || 0;
+            document.getElementById("visitCount").innerHTML = `Visit count ${count}`;
+        };
+    </script>
+</head>
+<body onload="initialize()">
+    <h1>Local Storage Example</h1>
+    <div id="visitCount"></div>
+</body>
+</html>
